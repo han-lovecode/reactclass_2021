@@ -1,13 +1,20 @@
 //import logo from "./logo.svg";
-import "./App.css";
+//import "./App.css";
+import styles from "./App.module.css";
+import StyledComponent from "./components/StyledComponent";
+//import Average from "./components/Average";
+//import Info from "./components/Info";
+//import Counter2 from "./components/Counter2";
 //import Day3 from "./components/Day3";
-import Day31 from "./components/Day3_1";
+//import Day31 from "./components/Day3_1";
+//import IterationSample from "./components/IterationSample";
 //import Jsx from "./components/Jsx";
 //import Mycomponent from "./components/Mycomponent";
 //import Day2 from "./components/Day2";
 //import Counter from "./components/Counter";
 //import Say from "./components/Say";
 //import EventPractice from "./components/EventPractice";
+//import Counter3 from "./components/Counter3";
 
 function App() {
   return (
@@ -17,11 +24,8 @@ function App() {
       {/* <Jsx age="14">
         나는 Jsx의 children 입니다<div>요요요</div>
       </Jsx> */}
-      {/* <Counter /> */}
-      {/* <Say /> */}
-      {/* <EventPractice /> */}
-      {/* <Day3 /> */}
-      <Day31 />
+      {/* <div className={styles.react}>안녕하세요</div> */}
+      <StyledComponent />
     </>
   );
 }
