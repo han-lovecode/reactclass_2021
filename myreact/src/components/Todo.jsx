@@ -7,8 +7,11 @@ const Todo = () => {
   const nextId = useRef(1);
 
   const handleAddTodo = () => {
-    if (text === "") return;
-    const newList = [...todoList, { id: nextId.current, text: text }];
+    //if (text === "") return;
+    const newList = [
+      ...todoList,
+      { id: nextId.current, text: text, isDone: false },
+    ];
     setTodoList(newList);
     setText("");
     nextId.current++;
@@ -17,22 +20,48 @@ const Todo = () => {
     const newTodoList = todoList.filter((todo) => todo.id !== id);
     setTodoList(newTodoList);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleAddTodo();
+  };
+  const handleIsDone = (e, id) => {
+    //const isDone = e.target.checked;
+    const newTodolist = todoList.map((todo) => {
+      if (todo.id === id) {
+        todo.isDone = e.target.checked;
+      }
+      return todo;
+
+      //return todo.id === id ? {...todo, isDone} :todo;
+    });
+    setTodoList(newTodolist);
+  };
 
   return (
     <Container>
       <Title>일정관리</Title>
       <InputWrapper>
-        <InputText onChange={(e) => setText(e.target.value)} value={text} />
-        <BtnSubmit onClick={handleAddTodo}>추가</BtnSubmit>
+        <form onSubmit={handleSubmit}>
+          <InputText
+            required
+            onChange={(e) => setText(e.target.value)}
+            value={text}
+          />
+          <BtnSubmit>추가</BtnSubmit>
+        </form>
       </InputWrapper>
       <List>
-        {todoList.map((todo) => (
-          <Item key={todo.id}>
+        {todoList.map(({ id, text, isDone }) => (
+          <Item key={id}>
             <label>
-              <Checkbox type="checkbox" />
-              <Content>{todo.text}</Content>
+              <Checkbox
+                type="checkbox"
+                checked={isDone}
+                onChange={(e) => handleIsDone(e, id)}
+              />
+              <Content isDone={isDone}>{text}</Content>
             </label>
-            <BtnDelete onClick={() => handleDelete(todo.id)}>삭제</BtnDelete>
+            <BtnDelete onClick={() => handleDelete(id)}>삭제</BtnDelete>
           </Item>
         ))}
       </List>
@@ -77,7 +106,10 @@ const Item = styled.li`
   }
 `;
 const Checkbox = styled.input``;
-const Content = styled.div``;
+const Content = styled.div`
+  color: ${({ isDone }) => isDone && "#ddd"};
+  text-decoration: ${({ isDone }) => isDone && "line-through"};
+`;
 const BtnDelete = styled.button``;
 
 export default Todo;

@@ -7,7 +7,8 @@
 //import Counter2 from "./components/Counter2";
 //import Day3 from "./components/Day3";
 //import Day31 from "./components/Day3_1";
-import IterationSample from "./components/IterationSample";
+import Async from "./components/Async";
+//import IterationSample from "./components/IterationSample";
 //import Jsx from "./components/Jsx";
 //import Mycomponent from "./components/Mycomponent";
 //import Day2 from "./components/Day2";
@@ -17,7 +18,7 @@ import IterationSample from "./components/IterationSample";
 //import Counter3 from "./components/Counter3";
 
 //import Flex from "./components/Flex";
-import Todo from "./components/Todo";
+//import Todo from "./components/Todo";
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
       {/* <StyledComponent /> */}
       {/* <Flex /> */}
       {/* <IterationSample /> */}
-      <Todo />
+      {/* <Todo /> */}
+      <Async />
     </>
   );
 }
