@@ -7,7 +7,7 @@
 //import Counter2 from "./components/Counter2";
 //import Day3 from "./components/Day3";
 //import Day31 from "./components/Day3_1";
-import Async from "./components/Async";
+//import Async from "./components/Async";
 //import IterationSample from "./components/IterationSample";
 //import Jsx from "./components/Jsx";
 //import Mycomponent from "./components/Mycomponent";
@@ -16,6 +16,8 @@ import Async from "./components/Async";
 //import Say from "./components/Say";
 //import EventPractice from "./components/EventPractice";
 //import Counter3 from "./components/Counter3";
+
+import Bootstrap from "./components/bootstrap/Bootstrap";
 
 //import Flex from "./components/Flex";
 //import Todo from "./components/Todo";
@@ -33,7 +35,8 @@ function App() {
       {/* <Flex /> */}
       {/* <IterationSample /> */}
       {/* <Todo /> */}
-      <Async />
+      {/* <Async /> */}
+      <Bootstrap />
     </>
   );
 }
