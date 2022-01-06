@@ -14,7 +14,7 @@ const Carousel = ({ data }) => {
   };
   return (
     <Wrapper>
-      <List>
+      <List activeIndex={activeIndex}>
         {data.map((image, index) => (
           <Item>
             <Image src={image} active={index === activeIndex} />
@@ -28,20 +28,25 @@ const Carousel = ({ data }) => {
 };
 
 const Wrapper = styled.div`
-  width: 800px;
-  height: 600px;
+  width: 400px;
+  height: 400px;
   position: relative;
+  overflow: hidden;
 `;
-const List = styled.ul``;
+const List = styled.ul`
+  display: flex;
+  transform: ${({ activeIndex }) => `translateX(-${activeIndex * 400}px)`};
+  transition: transform 0.5s ease-out;
+`;
 const Item = styled.li``;
 const Image = styled.img`
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: ${({ active }) => !active && 0};
-  transition: opacity 0.5s ease-in;
+  left: 0; */
+  width: 400px;
+  height: 400px;
+  /* opacity: ${({ active }) => !active && 0};
+  transition: opacity 0.5s ease-in; */
 `;
 
 const Btn = styled.button`
